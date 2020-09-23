@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/Bar-Amir-Naor-22-09-2020/static/js/main.0ecdeeb2.chunk.js",
+    "main.js.map": "/Bar-Amir-Naor-22-09-2020/static/js/main.0ecdeeb2.chunk.js.map",
+    "runtime-main.js": "/Bar-Amir-Naor-22-09-2020/static/js/runtime-main.654551ca.js",
+    "runtime-main.js.map": "/Bar-Amir-Naor-22-09-2020/static/js/runtime-main.654551ca.js.map",
+    "static/js/2.97063bf6.chunk.js": "/Bar-Amir-Naor-22-09-2020/static/js/2.97063bf6.chunk.js",
+    "static/js/2.97063bf6.chunk.js.map": "/Bar-Amir-Naor-22-09-2020/static/js/2.97063bf6.chunk.js.map",
+    "index.html": "/Bar-Amir-Naor-22-09-2020/index.html",
+    "precache-manifest.5723ee27e4cb5da71cecc19810229b67.js": "/Bar-Amir-Naor-22-09-2020/precache-manifest.5723ee27e4cb5da71cecc19810229b67.js",
+    "service-worker.js": "/Bar-Amir-Naor-22-09-2020/service-worker.js",
+    "static/js/2.97063bf6.chunk.js.LICENSE.txt": "/Bar-Amir-Naor-22-09-2020/static/js/2.97063bf6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.654551ca.js",
+    "static/js/2.97063bf6.chunk.js",
+    "static/js/main.0ecdeeb2.chunk.js"
+  ]
+}
