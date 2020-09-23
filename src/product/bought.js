@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import ProductCard from './productCard';
 
 const useStyles = makeStyles({
     root: {
@@ -19,8 +20,9 @@ const useStyles = makeStyles({
         marginTop: 12,
     },
 });
-const BoughtProducts = ({products,onReceive}) => {
+const BoughtProducts = ({products,onReceive,rates}) => {
     const classes = useStyles();
+    const usd = rates.USD;
 
     return (
         <div className={classes.pos}>
@@ -28,26 +30,7 @@ const BoughtProducts = ({products,onReceive}) => {
                 Bought Products
             </Typography>
             {products.map((product) => {
-                return (<Card className={classes.root} variant="outlined">
-                        <CardContent>
-                            <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                {product.name}
-                            </Typography>
-                            <Typography variant="h5" component="h2">
-                                {product.store}
-                            </Typography>
-                            <Typography className={classes.pos} color="textSecondary">
-                                {product.price}
-                            </Typography>
-                            <Typography variant="body2" component="p">
-                                {product.deliveryDate}
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="small" onClick={()=>onReceive(product)} variant={"outlined"}>Mark as received</Button>
-                        </CardActions>
-                    </Card>
-                )
+                return (<ProductCard product={product} onReceive={onReceive} usd={usd}/>)
             })}
         </div>
     )

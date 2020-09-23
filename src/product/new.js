@@ -15,20 +15,18 @@ const AddProduct = ({addProduct}) => {
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
     const [store, setStore] = useState("")
-    const [currency, setCurrency] = useState("")
     const [deliveryDate, setDeliveryDate] = useState("")
 
 
     const setFixedPrice = (event) => {
         const price = +event.target.value;
-        setPrice(price.toFixed(2));
+        setPrice(price);
     }
     const handleClearForm = (event) => {
         event.preventDefault();
         setName("");
         setPrice("");
         setStore("");
-        setCurrency("");
         setDeliveryDate("");
     }
     const handleFormSubmit = (event) => {
@@ -36,9 +34,8 @@ const AddProduct = ({addProduct}) => {
         const newProduct = {
             "id":uuid(),
             "name": name,
-            "price": price,
+            "price": price.toFixed(2),
             "store": store,
-            "currency": currency,
             "deliveryDate": deliveryDate
         }
         addProduct(newProduct);
@@ -84,22 +81,12 @@ const AddProduct = ({addProduct}) => {
                             required
                             id="price"
                             name="price"
-                            label="Price"
+                            label="Price (in USD)"
                             type="number"
-                            fullWidth
                             onChange={setFixedPrice}
                             value={price}
 
                         />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <FormControl>
-                            <InputLabel>Currency</InputLabel>
-                            <Select onChange={e => setCurrency(e.target.value)} value={currency}>
-                                <MenuItem value={"ILS"}>ILS ₪</MenuItem>
-                                <MenuItem value={"USD"}>USD $</MenuItem>
-                            </Select>
-                        </FormControl>
                     </Grid>
                     <Grid item xs={12}>
                         <InputLabel>Delivery Date</InputLabel>
