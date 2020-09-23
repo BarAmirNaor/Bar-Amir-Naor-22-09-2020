@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import ProductCard from './productCard';
+
 
 const useStyles = makeStyles({
     root: {
@@ -13,7 +10,7 @@ const useStyles = makeStyles({
     },
 
     title: {
-        fontSize: 14,
+        fontSize: 20,
     },
     pos: {
         marginBottom: 12,
@@ -26,7 +23,7 @@ const BoughtProducts = ({products,onReceive,rates}) => {
 
     return (
         <div className={classes.pos}>
-            <Typography className={classes.title} color="primary" gutterBottom>
+            <Typography className={classes.title}  gutterBottom>
                 Bought Products
             </Typography>
             {products.map((product) => {

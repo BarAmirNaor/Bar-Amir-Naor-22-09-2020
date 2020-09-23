@@ -5,10 +5,11 @@ import CardActions from "@material-ui/core/CardActions";
 import Card from "@material-ui/core/Card";
 import React, {useState} from "react";
 import {makeStyles} from '@material-ui/core/styles';
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 275,
+        maxWidth: 345,
     },
 
     title: {
@@ -27,39 +28,56 @@ const ProductCard = ({product, onReceive, usd}) => {
     const [price, setPrice] = useState(product.price);
 
     const convertToILS = (priceInUSD) => {
-
         setCurrency("ILS");
+        product.currency="ILS";
         setPrice( (priceInUSD / usd).toFixed(2));
+        product.price=(priceInUSD / usd).toFixed(2)
 
     }
     const convertToUSD = (priceInILS) => {
 
         setCurrency("USD");
+        product.currency="USD";
         setPrice( (priceInILS * usd).toFixed(2));
+        product.price=(priceInILS * usd).toFixed(2)
 
     }
     return (<Card className={classes.root} variant="outlined">
         <CardContent>
-            <Typography className={classes.title} color="textSecondary" gutterBottom>
+<Grid container spacing={3} xs={12} style={{display: "list-item"}}>
+    <Grid item>
+            <Typography className={classes.title} style={{fontWeight:"bold", fontSize:"24px",color:"red"}}  gutterBottom>
                 {product.name}
             </Typography>
-            <Typography variant="h5" component="h2">
+    </Grid>
+    <Grid item>
+            <Typography  >
                 {product.store}
             </Typography>
-            <Typography className={classes.pos} color="textSecondary">
+    </Grid>
+    <Grid item>
+            <Typography className={classes.pos} >
                 {`${price} ${currency === "USD" ? "$" : "₪"}`}
+
             </Typography>
-            <Button size="small" onClick={() => {
+        </Grid>
+    <Grid item>
+            <Button  size="small" style={{background:"red"}} onClick={() => {
                 currency === "USD" ? convertToILS(price) : convertToUSD(price)
             }} variant={"outlined"}>
                 {`Show in ${currency === "USD" ? "ILS" : "USD"}`}
             </Button>
-            <Typography variant="body2" component="p">
+    </Grid>
+    <Grid item>
+            <Typography >
                 {product.deliveryDate}
             </Typography>
+    </Grid>
+    </Grid>
         </CardContent>
         <CardActions>
-            <Button size="small" onClick={() => onReceive(product)} variant={"outlined"}>Mark as received</Button>
+            <Button style={{background:"red"}} size="small" onClick={() => onReceive(product)} variant={"outlined"}>Mark as received
+            </Button>
         </CardActions>
     </Card>)
 }
