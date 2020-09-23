@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Bar-Amir-Naor-22-09-2020/precache-manifest.5723ee27e4cb5da71cecc19810229b67.js"
+  "/Bar-Amir-Naor-22-09-2020/precache-manifest.6baca10cbd5859581488ca13c5fbb4e3.js"
 );
 
 self.addEventListener('message', (event) => {
